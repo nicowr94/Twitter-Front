@@ -1,0 +1,79 @@
+.container {
+  height: auto;
+  width: auto;
+  display: block;
+  text-align: center;
+  padding-top: 20px;
+}
+.row {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  min-width: 350px;
+  max-width: 440px;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.card {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.fa-3x {
+  color: #00acee;
+}
+
+.row h1 {
+  margin-top: 32px;
+  font-size: 48px;
+  font-family: "Lato", sans-serif;
+  margin-bottom: 12px;
+}
+
+.form-group-btn {
+  height: 60px;
+  background-color: #00acee;
+  margin-bottom: 20px;
+  border: #00acee solid 1px;
+  border-radius: 9999px;
+  justify-content: center;
+  align-items: center;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.form-group-btn span {
+  font-family: "Lato";
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  position: relative;
+  top: 16px;
+}
+
+.form-links {
+  flex-direction: row;
+  display: inline-flex;
+  margin-bottom: 20px;
+  width: 100%;
+  padding-left: 12px;
+  margin-bottom: 20px;
+}
+.form-links a {
+  color: #1b95e0;
+  cursor: pointer;
+  overflow-wrap: break-word;
+  text-decoration: none;
+}
+
+.form-links a span {
+  font-size: 20px;
+  overflow-wrap: break-word;
+}

@@ -1,0 +1,67 @@
+.form-group {
+  position: relative;
+  border: #cfd9de solid 1px;
+  padding: 10px;
+  border-radius: 6px;
+  height: 50px;
+  padding-bottom: 15px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.form-group label,
+input {
+  font-family: "-webkit-pictograph";
+}
+.form-group input {
+  width: 100%;
+  border: red solid 1px;
+  position: relative;
+  top: 20px;
+  background: transparent;
+  border: 0 none;
+  outline: none;
+  vertical-align: middle;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 10px;
+  height: 22px;
+  color: #667076;
+}
+.form-group label {
+  position: absolute;
+  top: calc(50% - 15px);
+  font-size: 23px;
+  left: 10px;
+  color: #667076;
+  transition: all 0.3s;
+  z-index: -1;
+}
+.form-group input:focus ~ label,
+.form-group input:focus ~ label,
+.form-group input:valid ~ label {
+  top: 10px;
+  font-size: 18px;
+  color: #00acee;
+}
+.form-group .line {
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  bottom: 0;
+  background: none;
+  left: 0;
+}
+.form-group .line:after {
+  content: "";
+  display: block;
+  width: 0;
+  background: #00acee;
+  height: 1px;
+  transition: all 0.2s;
+}
+.form-group input:focus ~ .line:after,
+.form-group input:focus ~ .line:after,
+.form-group input:valid ~ .line:after {
+  width: 100%;
+}
