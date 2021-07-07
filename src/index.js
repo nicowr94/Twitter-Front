@@ -4,7 +4,7 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
 // import {Home} from "./components/Home";
-import { Login } from "./components/Login";
+import { Login } from "./components/pages/Login";
 
 ReactDOM.render(
   <React.StrictMode>
