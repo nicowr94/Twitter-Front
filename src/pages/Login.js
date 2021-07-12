@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../css/Login.css";
-import InputForm from "../InputForm";
+import InputForm from "../components/InputForm";
+import { useHistory, Redirect } from "react-router-dom";
+import { AuthContext } from "../auth/AuthContext";
+import { types } from "../types/types";
 
 const listaInputs = [
   {
@@ -8,14 +11,14 @@ const listaInputs = [
     name: "username",
     text: "Teléfono, correo o usuario",
     type: "text",
-    autofocus:"autoFocus"
+    autofocus: "autoFocus",
   },
   {
     id: 2,
     name: "password",
     text: "Contraseña",
     type: "password",
-    autofocus:""
+    autofocus: "",
   },
 ];
 
@@ -30,6 +33,22 @@ export const Login = () => {
     console.log(name);
     if (name === "username") setName(e);
     else setPass(e);
+  };
+
+  const lastPath = localStorage.getItem("lastPath") || "/";
+  const { user, dispatch } = useContext(AuthContext);
+
+  let history = useHistory();
+  if (user.logged) history.push(lastPath);
+
+  const login_user = () => {
+    dispatch({
+      types: types.login,
+      payload: {
+        name: "Nicolas Wong",
+      },
+    });
+    history.replace(lastPath);
   };
 
   const iniciarSesion = async () => {
@@ -62,28 +81,29 @@ export const Login = () => {
         <div className="card">
           <p
             className={msgError ? "msg_error_visible" : "msg_error_nv"}
-            display="none"
+            // display="none"
           >
             El nombre de usuario y la contraseña que ingresaste no coinciden con
             nuestros registros. Por favor, revisa e inténtalo de nuevo.
           </p>
 
-          {listaInputs.map((element) => (
-            <div key={element.id}>
+          {listaInputs.map((input) => (
+            <div key={input.id}>
               <InputForm
-                text={element.text}
-                type={element.type}
-                name={element.name}
-                autofocus={element.autofocus}
+                text={input.text}
+                type={input.type}
+                name={input.name}
+                autofocus={input.autofocus}
                 callback={(e, name) => handleChange(e, name)}
               ></InputForm>
             </div>
           ))}
 
-          <div className="form-group-btn" onClick={iniciarSesion}>
+          <div className="form-group-btn" onClick={(iniciarSesion, login_user)}>
             <span className="span-btn">Iniciar sesión</span>
           </div>
-
+        </div>
+        <div className="card card-links">
           <div className="form-links">
             <a href="https://twitter.com/account/begin_password_reset">
               <span>¿Olvidaste tu contraseña?</span>
@@ -100,3 +120,5 @@ export const Login = () => {
     </div>
   );
 };
+
+export default Login;

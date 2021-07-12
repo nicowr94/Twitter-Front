@@ -1,0 +1,112 @@
+.container-publi {
+  padding: 0px;
+  width: 100%;
+  border: #eff3f4 solid 1px;
+  background: #eff3f4;
+}
+
+.header-nav,
+.header-body {
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+}
+
+.header-body {
+  padding-top: 10px;
+  padding-bottom: 0;
+}
+.header-publi {
+  background: white;
+  margin-bottom: 20px;
+}
+.header-nav {
+  height: 53px;
+  border: #eff3f4 solid 1px;
+  display: flex;
+  align-items: center;
+}
+h2 {
+  margin: 0;
+}
+.header-body img {
+  height: 46px;
+  border-radius: 30px;
+}
+
+.tweet {
+  width: 100%;
+  margin-left: 16px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+}
+.tweet p {
+  margin: 0;
+}
+.tweet span {
+  width: 100%;
+  /* border: 1px solid red; */
+  /* margin-left: 16px; */
+  font-size: 20px;
+  /* padding: 6px; */
+  overflow: hidden;
+  outline: none;
+  /* position: relative;
+  bottom: 25px; */
+}
+.tweet span:focus ~ p {
+  display: none;
+  color: red;
+}
+/* ejemplo */
+
+.header-btn {
+  margin-top: 20px;
+  border-top: 1px solid #eff3f4;
+  display: flex;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  justify-content: space-between;
+}
+.header-icons {
+  display: flex;
+  align-items: center;
+}
+
+.header-icons i {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 1.3em;
+  color: #00acee;
+}
+
+.btn-tweet {
+  background: #00acee;
+  width: 70px;
+  height: 29px;
+  display: flex;
+  padding: 5px;
+  text-align: center;
+  border-radius: 30px;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
+.btn-tweet span {
+  font-size: 17px;
+  width: 100%;
+}
+
+.mensaje_nuevo {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px;
+  padding-top: 40px;
+}
+.btn-nuevo {
+  width: 90px;
+}

@@ -4,13 +4,11 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
 // import {Home} from "./components/Home";
-import { Login } from "./components/pages/Login";
+import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>
-      <Login />
-    </div>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

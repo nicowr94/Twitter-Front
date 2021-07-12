@@ -9,7 +9,7 @@ export default function InputForm({ name, type, text, autofocus, callback }) {
         id={name}
         name={name}
         required
-        autofocus={autofocus}
+        autoFocus={autofocus}
         onChange={(e) => callback(e.target.value, name)}
       />
       <label>{text}</label>
