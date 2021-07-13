@@ -16,7 +16,6 @@
   grid-area: menu;
   /* background-color: #555; */
   text-align: center;
- 
 }
 .layout {
   grid-area: layout;
@@ -35,6 +34,9 @@
   }
   .options {
     display: none;
+  }
+  .menu {
+    position: fixed;
   }
 }
 @media (min-width: 1300px) {
@@ -55,5 +57,6 @@
   }
   .menu {
     text-align: inherit;
+    position: fixed;
   }
 }

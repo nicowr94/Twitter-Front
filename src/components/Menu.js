@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import "./Menu.css";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 import { types } from "../types/types";
 
@@ -24,33 +25,36 @@ export default function Menu() {
 
         <div className="menu-items">
           <ul>
-            <li>
-              <i class="fa fa-home fa-2x "></i>
-              <a href="">Home</a>
-            </li>
+            <Link to="/home">
+              <li>
+                <i className="fa fa-home fa-2x "></i>
+                <a to="/">Home</a>
+              </li>
+            </Link>
+
             <li className="item-search">
-              <i class="fa fa-search fa-2x"></i>
-              <a href=""></a>
+              <i className="fa fa-search fa-2x"></i>
+              <a to="/"></a>
             </li>
             <li className="item-no-mobil ">
-              <i class="fa fa-hashtag fa-2x"></i>
-              <a href="">Explore</a>
+              <i className="fa fa-hashtag fa-2x"></i>
+              <a to="/">Explore</a>
             </li>
             <li>
-              <i class="fa fa-bell-o fa-2x "></i>
-              <a href="">Notifications</a>
+              <i className="fa fa-bell-o fa-2x "></i>
+              <a to="/">Notifications</a>
             </li>
             <li>
-              <i class="fa fa-envelope-o fa-2x"></i>
-              <a href="">Messages</a>
+              <i className="fa fa-envelope-o fa-2x"></i>
+              <a to="/">Messages</a>
             </li>
             <li className="item-no-mobil ">
-              <i class="fa fa-user-o fa-2x"></i>
-              <a href="">Profile</a>
+              <i className="fa fa-user-o fa-2x"></i>
+              <a to="/">Profile</a>
             </li>
             <li className=" item-no-mobil ">
-              <i class="fa fa-ellipsis-h fa-2x"></i>
-              <a href="">More</a>
+              <i className="fa fa-ellipsis-h fa-2x"></i>
+              <a to="/">More</a>
             </li>
             <div className="btn-tweet btn-tweet-menu item-no-mobil">
               <span className="span-btn">Tweet</span>
@@ -67,11 +71,11 @@ export default function Menu() {
               />
             </div>
             <div>
-              <h4>Nicolas</h4>
-              <p>@Nicolas56742850</p>
+              <h4>{user.name}</h4>
+              <p>@{user.name}56742850</p>
             </div>
             <div>
-              <i class="fa fa-sign-out" onClick={logoutUser}></i>
+              <i className="fa fa-sign-out" onClick={logoutUser}></i>
             </div>
           </div>
         </div>

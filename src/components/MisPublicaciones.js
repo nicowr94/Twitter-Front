@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../auth/AuthContext";
 import "./MisPublicaciones.css";
-export default function MisPublicaciones() {
 
-  
+export default function MisPublicaciones() {
+  const { user } = useContext(AuthContext);
+  const [tweet, setTweet] = useState("");
+
+  const handleChange = (e) => {
+    setTweet(e.target.textContent);
+  };
+  const crearTeet = async () => {
+    const data = {
+      username: user.name,
+      id_user: user.id,
+      comment: tweet,
+    };
+
+    const response = await fetch(`http://localhost:4000/api/tweet`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": user.token,
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok === true) {
+      console.log("tweet creado");
+    } else console.log("error");
+  };
+
   return (
     <div>
       <div className="container-publi">
@@ -16,18 +43,26 @@ export default function MisPublicaciones() {
               alt=""
             />
             <div className="tweet">
-              {/* <p>What’s happening?</p> */}
-              <span contenteditable="true">What’s happening?</span>
+              <span
+                contentEditable="true"
+                suppressContentEditableWarning={true}
+                value={tweet}
+                onInput={(e) => handleChange(e)}
+              >
+                What’s happening
+              </span>
               <div className="header-btn">
                 <div className="header-icons">
-                  <i class="fa fa-picture-o  "></i>
-                  <i class="fa fa-square-o  "></i>
-                  <i class="fa fa-bar-chart  "></i>
-                  <i class="fa fa-smile-o"></i>
-                  <i class="fa fa-calendar"></i>
+                  <i className="fa fa-picture-o  "></i>
+                  <i className="fa fa-square-o  "></i>
+                  <i className="fa fa-bar-chart  "></i>
+                  <i className="fa fa-smile-o"></i>
+                  <i className="fa fa-calendar"></i>
                 </div>
                 <div className="btn-tweet">
-                  <span className="span-btn">Tweet</span>
+                  <span className="span-btn" onClick={crearTeet}>
+                    Tweet
+                  </span>
                 </div>
               </div>
             </div>

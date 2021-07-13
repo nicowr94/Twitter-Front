@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import "../css/Login.css";
 import InputForm from "../components/InputForm";
-import { useHistory, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 import { types } from "../types/types";
 
@@ -26,7 +26,6 @@ export const Login = () => {
   // const [user, setUser] = useState({ name: "", pass: "" });
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
-  const [error, setError] = useState("");
   const [msgError, setMsgError] = useState(false);
 
   const handleChange = (e, name) => {
@@ -35,24 +34,14 @@ export const Login = () => {
     else setPass(e);
   };
 
-  const lastPath = localStorage.getItem("lastPath") || "/";
+  const lastPath = localStorage.getItem("lastPath") || "/home";
   const { user, dispatch } = useContext(AuthContext);
 
   let history = useHistory();
   if (user.logged) history.push(lastPath);
 
-  const login_user = () => {
-    dispatch({
-      types: types.login,
-      payload: {
-        name: "Nicolas Wong",
-      },
-    });
-    history.replace(lastPath);
-  };
-
-  const iniciarSesion = async () => {
-    // const data = { email: name, password: pass };
+  const loginUser = async () => {
+ 
     const data = {
       email: name,
       password: pass,
@@ -65,13 +54,23 @@ export const Login = () => {
       },
       body: JSON.stringify(data),
     });
-
-    if (response.ok === true) window.location.href = "https://www.google.com/";
-    else setMsgError(true);
+    const response_data = await response.json();
+    console.table(response_data);
+    if (response.ok === true) {
+      dispatch({
+        types: types.login,
+        payload: {
+          id: response_data.user.id,
+          name: response_data.user.name,
+          token: response_data.token,
+        },
+      });
+      history.replace(lastPath);
+    } else setMsgError(true);
   };
 
   return (
-    <div className="container">
+    <div className="container-login">
       <div className="row">
         <div className="card">
           <i className="fa fa-twitter fa-3x"></i>
@@ -99,7 +98,7 @@ export const Login = () => {
             </div>
           ))}
 
-          <div className="form-group-btn" onClick={(iniciarSesion, login_user)}>
+          <div className="form-group-btn" onClick={loginUser}>
             <span className="span-btn">Iniciar sesión</span>
           </div>
         </div>

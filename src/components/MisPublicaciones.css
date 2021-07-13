@@ -110,3 +110,7 @@ h2 {
 .btn-nuevo {
   width: 90px;
 }
+
+.header-btn .header-icons .fa {
+  cursor: pointer;
+}

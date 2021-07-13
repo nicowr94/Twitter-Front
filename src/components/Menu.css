@@ -70,6 +70,7 @@
   }
   .menu-items ul li {
     margin-top: 10px;
+    justify-content: flex-start !important;
   }
   .menu-items ul li a {
     display: block !important;
@@ -104,9 +105,17 @@
   display: flex;
   line-height: 1.5;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
   border-radius: 30px;
+
+  margin: 10px;
+  height: 50px;
+  flex-wrap: wrap;
+  align-content: stretch;
+
+  justify-content: center;
 }
+
 .menu-items ul li a {
   float: left;
   display: none;
@@ -142,6 +151,7 @@ li:hover {
   /* display: flex; */
   flex-direction: row;
   align-items: center;
+  margin-top: 30px;
 }
 
 .user-info .user-img img {
@@ -166,4 +176,11 @@ li:hover {
   padding: 5px;
   color: #536471;
   font-size: 1.3em;
+}
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+  color: black;
 }

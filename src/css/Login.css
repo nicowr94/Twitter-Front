@@ -1,7 +1,7 @@
-.container {
+.container-login {
   height: auto;
   width: auto;
-  display: block;
+  display: flex;
   text-align: center;
   padding-top: 20px;
 }
